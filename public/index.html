@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>氪金币</title>
+  </head>
+  <body class="w_750">
+    <div id="root"></div>
+    <script>
+      !(function (window) {
+
+      //设备宽度/设计稿宽度 = 某个元素某一距离实际值/该元素在设计稿的值
+      //a/750 = ?/100 => ? = a*100/750
+
+      //原理=>监听屏幕尺寸变化 动态改变 html 根节点 的 fontSize 大小；
+
+      //变化范围在 320<= 设备宽度 <= 420, 大于或小于者保持临界点值；
+
+      //1.iPhone5分辨率320x568，像素640x1136，@2x
+      //2.iPhone6分辨率375x667，像素750x1334，@2x
+      //iPhone6 Plus分辨率414x736，像素1242x2208，@3x
+
+      const doc = window.document,
+          docHtml = doc.documentElement,
+          UIwidth = 750,
+          resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+
+      function setHtmlFontSize() {
+          let docHtmlWidth = docHtml.getBoundingClientRect().width; //设备宽度
+          let fontSize = docHtmlWidth<320
+              ?320*100/UIwidth
+              :docHtmlWidth>420
+                  ?420*100/UIwidth
+                  :docHtmlWidth*100/UIwidth;
+          docHtml.style.fontSize = fontSize + 'px';  //相当于 px/2/100了  如果不*2的话就是 px/1/100
+
+      }
+
+      //init
+      setHtmlFontSize();
+      //add data-dpr
+      docHtml.setAttribute('data-dpr', window.navigator.appVersion.match(/iphone/gi) ? window.devicePixelRatio : 1);
+      console.log(docHtml.getAttribute('data-dpr'))
+      if (!docHtml.addEventListener) return;
+      window.addEventListener(resizeEvt, setHtmlFontSize, false);
+      docHtml.addEventListener('DOMContentLoaded', setHtmlFontSize, false);
+
+      })(window);
+      window.baseUrl = "http://kjb.it8851.com";
+      window.tokenLoseFun = function(){
+      localStorage.removeItem("logined");
+      localStorage.removeItem("sundryData");
+      localStorage.removeItem("token");
+      }
+      Date.prototype.format = function(fmt) { 
+      var o = { 
+        "M+" : this.getMonth()+1,                 //月份 
+        "d+" : this.getDate(),                    //日 
+        "h+" : this.getHours(),                   //小时 
+        "m+" : this.getMinutes(),                 //分 
+        "s+" : this.getSeconds(),                 //秒 
+        "q+" : Math.floor((this.getMonth()+3)/3), //季度 
+        "S"  : this.getMilliseconds()             //毫秒 
+      }; 
+      if(/(y+)/.test(fmt)) {
+            fmt=fmt.replace(RegExp.$1, (this.getFullYear()+"").substr(4 - RegExp.$1.length)); 
+      }
+      for(var k in o) {
+        if(new RegExp("("+ k +")").test(fmt)){
+              fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+          }
+      }
+      return fmt; 
+      }   
+    </script>
+  </body>
+</html>

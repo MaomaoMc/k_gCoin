@@ -226,22 +226,21 @@ class DealRecords extends Component {
                 </div>
                
             </div>
-            <div className={this.state.dlgShow ? "dialog dlgPayPwd" : "dialog dlgPayPwd hide"}>
-                <p className="dlg_tit fc_white">输入密码</p>
+            <div className={this.state.dlgShow ? "dialog dlgPayKj" : "dialog dlgPayKj hide"}>
+                <p className="dlg_tit fc_white">支付密码</p>
                 <div className="dlg_form">
-                    <p className="text_center fz_24 fc_white">请输入支付密码：</p>
-                    <input className="b_blue1" type="password" value = {this.state.tradePassPwd} 
+                    <input className="b_blue1" type="password" placeholder = "请输入支付密码" value = {this.state.tradePassPwd} 
                     onChange = {e => {
                         this.handlePwdEvent({val: e.target.value})
                     }}
                     />
-                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_blue">忘记交易密码?</span></Link></div>
+                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_brown">忘记交易密码?</span></Link></div>
                     <div className="over_hidden" style={{padding: "0 .14rem"}}>
                         <span className="btn fz_24 fc_white f_lt" onClick = {e => {
-                            self.handlePayPwd({type: "cancel"})
+                            this.handlePayPwd({type: "cancel"})
                         }}>取消</span>
                         <span className="btn fz_24 fc_white f_rt" onClick = {e => {
-                            self.handlePayPwd({type: "confirm"})
+                            this.handlePayPwd({type: "confirm"})
                         }}>确定</span>
                     </div>
                 </div>

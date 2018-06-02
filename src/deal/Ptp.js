@@ -125,11 +125,10 @@ class Ptp extends Component {
                 }}
                 >卖出</span>
             </div>
-            <div className={this.state.dlgShow ? "dialog dlgPayPwd" : "dialog dlgPayPwd hide"}>
-                <p className="dlg_tit fc_white">输入密码</p>
+            <div className={this.state.dlgShow ? "dialog dlgPayKj" : "dialog dlgPayKj hide"}>
+                <p className="dlg_tit fc_white">支付密码</p>
                 <div className="dlg_form">
-                    <p className="text_center fz_24 fc_white">请输入支付密码：</p>
-                    <input className="b_blue1" type="password" value = {this.state.pass} 
+                    <input className="b_blue1" type="password" placeholder = "请输入支付密码" value = {this.state.tradePassPwd} 
                     onChange = {e => {
                         this.handlePwdEvent({val: e.target.value})
                     }}

@@ -70,7 +70,6 @@ class Invite extends Component {
     }
     render (){
         const self = this;
-        console.log(JSON.parse(localStorage.getItem("sundryData")).appqrcode, '2')
         return <div>
             <Title title="邀请好友" code = {this.state.code}/>
             <div className = "text_center">

@@ -282,7 +282,7 @@ class MineralPool extends Component {
                 <a className="btn_close" onClick = {e => {
                     self.handleMessageDlg({type: "close"})
                 }}></a>
-                <div style={{padding: '.25rem .35rem'}}>
+                <div style={{padding: '0 .35rem'}}>
                     <div>
                         <span className="label">ID</span>
                         <span className="message">{this.state.dlgIdNum}</span>
@@ -292,7 +292,7 @@ class MineralPool extends Component {
                             }}
                         >复制</span>
                     </div>
-                    <div style={{marginTop: '.245rem'}}>
+                    <div style={{marginTop: '.24rem'}}>
                         <span className="label">TEL</span>
                         <span className="message">{this.state.dlgIdPhone}</span>
                         <span className="btn"

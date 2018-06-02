@@ -7,7 +7,6 @@ import WarningDlg from '../WarningDlg';
 class Register extends Component {
     constructor (props){
         super(props);
-        
         let tui_id = "";
         const hash = window.location.hash;
         if(hash.indexOf("tui_id") !== -1){
@@ -18,8 +17,8 @@ class Register extends Component {
             code: "", //验证码
             l_pass: "",
             rl_pass: "",
-            t_pass: "",  //交易密码
-            rt_pass: "",  //重复交易密码
+            t_pass: "123",  //交易密码
+            rt_pass: "123",  //重复交易密码
             tui_id: tui_id, //推荐人ID
             data_code: "", //接口返回的code  例如10002  1 等
             countDown: 60,
@@ -27,11 +26,9 @@ class Register extends Component {
             warningDlgText: ""
         }
     }
-    handleInputChange (e){
-        const type = e.type;
-        const value = e.value;
+    changeInputVal (e){
         this.setState({
-            [type]: value
+            [e.type]: e.value
         })
     }
     checkMobile (phone){ //手机号码验证
@@ -181,50 +178,51 @@ class Register extends Component {
         return <div>
             <Title title="注册页面" code = {this.state.data_code}/>
             <div className="logo"></div>
-            <p className="fc_white fz_30 text_center">创建账户</p>
-            <div className="primary_form" style={{width: '3.392rem', margin: '0 auto'}}>
-                <input type="text" placeholder="手机号：" value = {this.state.phone} onChange = {e => {
-                    this.handleInputChange({type: "phone", value: e.target.value})
-                }}/>
-                <div>
-                    <input className="code" type="text" placeholder="验证码：" value = {this.state.code} onChange = {e => {
-                    this.handleInputChange({type: "code", value: e.target.value})
-                }}/>
-                    <span className={countDown > 0 && countDown < 60 ? "sendMessage btn btn_default fz_26" : "sendMessage btn btn_primary fz_26"} onClick = {e => {
-                        this.handleSendCode()
-                    }}>{countDown > 0 && countDown < 60 ? countDown + "s后重新发送" : countDown === 0 ? "重新发送" : "发送短信"}</span>
-                </div>
-                <input type="password" placeholder="创建密码：" value = {this.state.l_pass} onChange = {e => {
-                    this.handleInputChange({type: "l_pass", value: e.target.value})
-                }} onBlur = {e => {
-                    this.passValidate({type: "l_pass", value: e.target.value})
-                }}/>
-                <input type="password" placeholder="重复确认密码：" value = {this.state.rl_pass} onChange = {e => {
-                    this.handleInputChange({type: "rl_pass", value: e.target.value})
-                }} onBlur = {e => {
-                    this.passValidate({type: "rl_pass", value: e.target.value})
-                }}/>
-                <input type="password" placeholder="创建交易密码：" maxLength = "6" value = {this.state.t_pass} onChange = {e => {
-                    this.handleInputChange({type: "t_pass", value: e.target.value})
-                }} onBlur = {e => {
-                    this.passValidate({type: "t_pass", value: e.target.value})
-                }}/>
-                <input type="password" placeholder="重复交易密码：" maxLength = "6" value = {this.state.rt_pass} onChange = {e => {
-                    this.handleInputChange({type: "rt_pass", value: e.target.value})
-                }} onBlur = {e => {
-                    this.passValidate({type: "rt_pass", value: e.target.value})
-                }}/>
-                {window.location.hash.indexOf("tui_id") !== -1 ? <input type="text" placeholder="推荐人手机号或ID：" readOnly="true" defaultValue= {this.state.tui_id} />
-                 : <input type="text" placeholder="推荐人ID：" value = {this.state.tui_id} onChange = {e => {
-                    this.handleInputChange({type: "tui_id", value: e.target.value})
-                }}/>}
-                
+            <div className="primary_form" style={{width: '3.392rem', margin: '.2rem auto 0'}}>
+                <ul className = "f_flex">
+                    <li>
+                        <label>手机号</label>
+                        <input type = "text" placeholder="请输入您的手机号" value={this.state.phone} onChange={e => {
+                            this.changeInputVal({type: "phone", value: e.target.value})
+                        }} />
+                    </li>
+                    <li>
+                        <label>验证码</label>
+                        <input className="code" type="text" placeholder="请输入验证码" style={{width: "40%"}} value = {this.state.code} onChange = {e => {
+                            this.changeInputVal({type: "code", value: e.target.value})
+                        }}/>
+                        <span className={countDown > 0 && countDown < 60 ? "sendMessage btn btn_default fz_26" : "sendMessage btn btn_primary fz_26"} onClick = {e => {
+                            this.handleSendCode()
+                        }}>{countDown > 0 && countDown < 60 ? countDown + "s后重新发送" : countDown === 0 ? "重新发送" : "发送短信"}</span>
+                    </li>
+                    <li>
+                        <label>创建密码</label>
+                        <input type = "text" placeholder="请输入您的密码" value={this.state.l_pass} onChange={e => {
+                            this.changeInputVal({type: "l_pass", value: e.target.value})
+                        }} />
+                    </li>
+                    <li>
+                        <label>重复确认密码</label>
+                        <input type="password" placeholder="请重复确认您的密码：" value = {this.state.rl_pass} onChange = {e => {
+                            this.changeInputVal({type: "rl_pass", value: e.target.value})
+                        }} onBlur = {e => {
+                            this.passValidate({type: "rl_pass", value: e.target.value})
+                        }}/>
+                    </li>
+                    <li>
+                        <label>推荐人ID</label>
+                        {window.location.hash.indexOf("tui_id") !== -1 ? <input type="text" placeholder="请输入推荐人ID：" readOnly="true" defaultValue= {this.state.tui_id} />
+                        : <input type="text" placeholder="推荐人ID：" value = {this.state.tui_id} onChange = {e => {
+                            this.handleInputChange({type: "tui_id", value: e.target.value})
+                        }}/>}
+                    </li>
+                </ul>
                 <span className="btn btn_primary login_btn h_80 fz_26 f_lt mt_50" style={{width: '100%'}}
                 onClick={e => {
                     this.register({})
                 }}>注册</span>
-                <span className="back_login f_lt block fc_gray fz_28 mt_50" style={{width: '100%'}}>
-                    <Link to="/">返回登录页面</Link></span>
+                <span className="back_login f_lt block fz_26 text_center mt_50" style={{width: '100%'}}>
+                    <Link to="/">返回登录页</Link></span>
                     {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningDlgText}/> : null}
             </div>
         </div>

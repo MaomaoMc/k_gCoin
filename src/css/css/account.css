@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .logo {
-  width: 1.32rem;
-  height: 1.33rem;
+  width: 1.25rem;
+  height: 1.34rem;
   background-image: url(../../img/logo.png);
   background-repeat: no-repeat;
   background-size: 100%;
@@ -32,9 +32,9 @@
     float: right;
     color: white; }
   .account_form span.sendMessage {
-    width: 1.07rem;
-    height: .4rem;
-    line-height: .4rem;
+    width: 30%;
+    height: .37rem;
+    line-height: .37rem;
     float: right; }
 
 .login_btn, .register_btn, .submit_btn {
@@ -67,6 +67,17 @@
   .primary_form span.btn {
     height: .37rem;
     line-height: .37rem; }
+  .primary_form span.sendMessage {
+    width: 30%; }
+  .primary_form .back_login {
+    height: .4rem;
+    line-height: .4rem;
+    text-align: center; }
+    .primary_form .back_login a {
+      display: block;
+      height: .4rem;
+      line-height: .4rem;
+      color: rgba(255, 255, 255, 0.4); }
 
 /*个人资料*/
 .personalData {

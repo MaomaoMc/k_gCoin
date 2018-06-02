@@ -44,7 +44,7 @@
             }
         }
 }
-.dlgZtMessage{
+.dlgZtMessage, .dlgMessage{
     width: 2.76rem;
     height: 2.3rem;
     background: url(../../img/bg_tankuang.png) no-repeat 100% 100%;
@@ -60,34 +60,35 @@
     }
 }
 .dlgMessage{
-    width: 3.025rem;
-    height: 1.745rem;
-    background: url(../../img/bg_gerenxinxi.png) no-repeat 100% 100%;
-    margin-left: -1.5225rem;
-    margin-top: -1rem;
+    // width: 3.025rem;
+    // height: 1.745rem;
+    // background: url(../../img/bg_tankuang.png) no-repeat 100% 100%;
+    // margin-left: -1.5225rem;
+    // margin-top: -1rem;
     div{
         font-size: .16rem;
         color: white;
         height: .22rem;
         line-height: .22rem;
+        margin-top: .2rem;
     }
     span{
         display: inline-block;
-        
     }
     span.label{
-        width: .47rem;
+        width: 20%;
     }
     span.message{
-        width: 1.13rem;
+        width: 57%;
         text-indent: .05rem;
-        border: .01rem solid #00a8ff;
+        border: .01rem solid #cb9851;
     }
     span.btn{
-        width: .43rem;
+        width: 18%;
+        font-size: .12rem;
         float: right;
-        background-color: #0e689d;
-        border: .01rem solid #00a8ff;
+        background-color: #352f1b;
+        border: .01rem solid #cb9851;
     }
 }
 .warningDlg{

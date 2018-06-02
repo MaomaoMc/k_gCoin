@@ -157,9 +157,9 @@ class Personal extends Component {
             <div style={{height: '100%', padding:  '.3rem 0.2rem'}}>
                 <p className="fc_white fz_30 text_center" style={{lineHeight: '.35rem'}}>资产总额</p>
                 <p className="fc_yellow fz_70 text_center" style={{lineHeight: '.94rem'}}>{data.total}</p>
-                <div className="fc_30 fz_30 text_center over_hidden" style={{marginLeft: '.45rem', width: "82%"}}>
-                    <span className="fc_white f_lt"><span>可用JSD:</span><span className="fc_white">{parseFloat(data.jd_num).toFixed(2)}</span></span>
-                    <span className="fc_white f_rt"><span>冻结JSD:<span className="fc_white">{parseFloat(data.djd_num).toFixed(2)}</span></span></span>
+                <div className="fc_30 fz_30 text_center over_hidden" style={{padding: '0 .2rem'}}>
+                    <span className="fc_white f_lt"><span><i className = "icon icon_jsd"></i>可用JSD:</span><span className="fc_white">{parseFloat(data.jd_num).toFixed(2)}</span></span>
+                    <span className="fc_white f_rt"><span><i className = "icon icon_djsd"></i>冻结JSD:<span className="fc_white">{parseFloat(data.djd_num).toFixed(2)}</span></span></span>
                 </div>
             </div>
            </div>

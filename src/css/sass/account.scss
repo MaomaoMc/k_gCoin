@@ -547,6 +547,20 @@ i.inviteCode{
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin: .1rem auto;
+    i.icon{
+        display: inline-block;
+        width: .13rem;
+        height: .135rem;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-right: .05rem;
+    }
+    .icon.icon_jsd{
+        background-image: url(../../img/icon_jsd.png);
+    }
+    .icon.icon_djsd{
+        background-image: url(../../img/icon_djsd.png);
+    }
 }
 .account_menus{
     flex-direction: row;

@@ -6,7 +6,7 @@ import Title from '../Title';
 import WarningDlg from './../WarningDlg';
 import Shadow from './../Shadow';
 
-const ytf_pic = require("../img/icon_ytf.png")
+const ytf_pic = require("../img/icon_ytf_nor.png")
 class ExchangeYtf extends Component{
     constructor (props){
         super(props);
@@ -100,12 +100,12 @@ class ExchangeYtf extends Component{
     render (){
         return <div className="text_center">
         <Title title="兑换以太坊" code = {this.state.code}/>
-           <div className="profile">
+           {/* <div className="profile">
             <img src={ytf_pic} alt=""/>
-           </div>
+           </div> */}
             <ul className="lists f_flex fz_26" style={{marginTop: 0}}>
                 <li>
-                    <span className="f_lt fc_blue">钱包地址</span>
+                    <span className="f_lt fc_brown">钱包地址</span>
                     <span className="f_rt">
                         <input className = "card_num" type="text" placeholder = "输入钱包地址" value = {this.state.num}
                          onChange = {e => {
@@ -115,7 +115,7 @@ class ExchangeYtf extends Component{
                     </span>
                 </li>
                 <li>
-                    <span className="f_lt fc_blue">请输入兑换JSD</span>
+                    <span className="f_lt fc_brown">请输入兑换JSD</span>
                     <span className="f_rt">
                         <input className="czAmount" type="text" value = {this.state.jd_num}
                           onChange = {e => {
@@ -141,7 +141,7 @@ class ExchangeYtf extends Component{
                         this.handlePwdEvent({val: e.target.value})
                     }}
                     />
-                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_blue">忘记交易密码?</span></Link></div>
+                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_brown">忘记交易密码?</span></Link></div>
                     <div className="over_hidden" style={{padding: "0 .14rem"}}>
                         <span className="btn fz_24 fc_white f_lt" onClick = {e => {
                             this.handlePayPwd({type: "cancel"})

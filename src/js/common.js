@@ -37,7 +37,7 @@ console.log(docHtml.getAttribute('data-dpr'))
     docHtml.addEventListener('DOMContentLoaded', setHtmlFontSize, false);
 
 })(window);
-window.baseUrl = "http://kjb.it8851.com";
+window.baseUrl = "http://www.6615766.cn/";
 window.tokenLoseFun = function(){
     localStorage.removeItem("logined");
     localStorage.removeItem("sundryData");
@@ -58,7 +58,7 @@ Date.prototype.format = function(fmt) {
    }
     for(var k in o) {
        if(new RegExp("("+ k +")").test(fmt)){
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length===1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
+            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length==1) ? (o[k]) : (("00"+ o[k]).substr((""+ o[k]).length)));
         }
     }
    return fmt; 

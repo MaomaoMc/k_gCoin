@@ -26,34 +26,40 @@ class SystemSet extends Component{
             <ul className="lists f_flex fz_26" style={{marginTop: 0}}>
                 <li>
                     <Link to="/account/systemSet/about">
-                        <span className="f_lt">关于JSD</span>
-                        <span className="f_rt">></span>
-                    </Link>
-                </li>
-                <li>
-                    <Link to = "/account/systemSet/nounExplain">
-                        <span className="f_lt">名词解释</span>
-                        <span className="f_rt">></span> 
-                    </Link>
-                </li>
-                <li>
-                    <Link to = "/account/systemSet/feedback">
-                        <span className="f_lt">留言反馈</span>
-                        <span className="f_rt">></span> 
-                    </Link>
-                </li>
-                <li>
-                    <Link to="/account/systemSet/wechat">
-                        <span className="f_lt">微信客服</span>
+                        <span className="f_lt fc_brown">关于JSD</span>
                         <span className="f_rt">
-                            <span>J_SD</span>
+                            <span className="go_arrow"></span>
                         </span>
                     </Link>
                 </li>
                 <li>
-                    <span className="f_lt">当前版本</span>
+                    <Link to = "/account/systemSet/nounExplain">
+                        <span className="f_lt fc_brown">名词解释</span>
+                        <span className="f_rt">
+                            <span className="go_arrow"></span>
+                        </span> 
+                    </Link>
+                </li>
+                <li>
+                    <Link to = "/account/systemSet/feedback">
+                        <span className="f_lt fc_brown">留言反馈</span>
+                        <span className="f_rt">
+                            <span className="go_arrow"></span>
+                        </span> 
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/account/systemSet/wechat">
+                        <span className="f_lt fc_brown">微信客服</span>
+                        <span className="f_rt">
+                            <span className="fc_brown_tint">J_SD</span>
+                        </span>
+                    </Link>
+                </li>
+                <li>
+                    <span className="f_lt fc_brown">当前版本</span>
                     <span className="f_rt">
-                    <span>1.14</span>
+                    <span className="fc_brown_tint">1.14</span>
                     </span>
                 </li>
             </ul>

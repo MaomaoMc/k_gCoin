@@ -6,6 +6,7 @@ import WarningDlg from '../WarningDlg';
 import Shadow from '../Shadow';
 
 const baseUrl = window.baseUrl;
+// const token = localStorage.getItem("token");
 class Feedback extends Component{
     constructor (props){
         super(props);
@@ -105,7 +106,8 @@ class Feedback extends Component{
            </div>
            <ul className="feedBackLists f_flex">{
                data.length > 0 && data.map(function(item, i){
-                   return <li key = {i} className="fz_20"
+                   const status_msg = item.status_msg;
+                   return <li key = {i} className="fz_20 fc_white"
                    onClick = {e => {
                        self.feedbackDetails({item: item})
                    }}

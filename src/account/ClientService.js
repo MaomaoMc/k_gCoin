@@ -8,19 +8,19 @@ class ClientService extends Component{
         const sundryData = JSON.parse(localStorage.getItem("sundryData"));
         const wx_pic = sundryData.wx_pic;
         const wx_kefu = sundryData.wx_kefu;
-        return <div style = {{backgroundColor: "white"}}>
+        return <div>
             <Title title="客服中心"/>
-            <div className="clientService fc_blue fz_24">
+            <div className="clientService fz_24">
                 <p>
                     <img className="wechat" src={wechat} alt=""></img>
-                    <span>JSD微信官方客服：</span>
+                    <span className = "fc_brown">JSD微信官方客服：</span>
                 </p>
-                <img className="weChatgzh" src={window.baseUrl + wx_pic} alt=""/>
-                <p>
+                <img className="weChatgzh mt_20" src={window.baseUrl + wx_pic} alt=""/>
+                <p className = "mt_20">
                     <span className="icon kefu"></span>
-                    <span>官方微信客服</span>
+                    <span className = "fc_brown">官方微信客服</span>
                 </p>
-                <div dangerouslySetInnerHTML = {{__html: wx_kefu}} style = {{color: "#666"}}></div>
+                <div className = "fc_brown_tint" dangerouslySetInnerHTML = {{__html: wx_kefu}}></div>
             </div>
         </div>
     }

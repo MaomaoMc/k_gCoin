@@ -76,7 +76,7 @@ class Price extends Component {
                 left:'left',
                 textStyle:{
                     //文字颜色
-                    // color:'#00a8ff',
+                    color:'#c9a96e',
                     //字体系列
                     //字体大小
             　　　　 fontSize: ".13rem",
@@ -88,8 +88,9 @@ class Price extends Component {
                 trigger: 'axis',
                 axisPointer: {
                     type: 'cross',
+                
                     label: {
-                        backgroundColor: '#6a7985'
+                        backgroundColor: '#c9a96e'
                     }
                 }
             },
@@ -105,26 +106,38 @@ class Price extends Component {
             xAxis : [
                 {
                     type : 'category',
-                    // boundaryGap : false,
+                    boundaryGap : false,
                     data : data.date_arr,
+                    axisLine:{
+                        lineStyle:{
+                            color:'#c9a96e',
+                        }
+                    } 
                 }
             ],
             yAxis : [
                 {
                     type : 'value',
                     splitLine:{show: false},//去除网格线
+                    axisLine:{
+                        lineStyle:{
+                            color:'#c9a96e',
+                        }
+                    } 
                 }
             ],
             series : [
                 {
                     type:'line',
                     stack: '总量',
-                    smooth: true,
+                    areaStyle: {
+                        color: ['rgba(201,169,110,0.3)', 'rgba(255,255,255,0.3)']
+                    },
                     itemStyle : {  
                         normal : {  
-                            color: "#0a236a",
+                            color: "#c9a96e",
                             lineStyle:{  
-                                color:'#03a6d6'  
+                                color:'#c9a96e'  
                             }  
                         }  
                     },  
@@ -145,6 +158,7 @@ class Price extends Component {
         }
         return <div>
             <div id="main" className="mt_20" style={{width: "3.35rem", height: "2.12rem", margin: "0 auto", zIndex: "98"}}></div>
+
             {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningText} /> : null}
         </div>
     }

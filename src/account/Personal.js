@@ -10,13 +10,12 @@ import Bill from "./Bill";
 import ClientService from "./ClientService";
 import SystemNotice from "./SystemNotice";
 import SystemSet from "./SystemSet";
-import MyMineral from "./MyMineral";
+import OilCard from "./OilCard";
 import ExChangeYtf from "./ExChangeYtf";
 import SwMarket from "./SwMarket";
 import RobPacket from "./RobPacket";
 import LuckDial from "./LuckDial";
 import Lottery from "./Lottery";
-import OilCard from "./OilCard";
 
 import '../css/css/asset.css';
 const accountMenus = [
@@ -26,6 +25,12 @@ const accountMenus = [
         component: PersonalData,
         text: "个人资料"
     },
+    // {
+    //     pic: require("../img/icon_wdkj.png"),
+    //     link: "/account/myMineral",
+    //     component: Bill,
+    //     text: "我的矿机"
+    // },
     {
         pic: require("../img/icon_zdzx.png"),
         link: "/account/Bill",
@@ -56,12 +61,6 @@ const accountMenus = [
         component: SystemSet,
         text: "系统设置"
     },
-    // {
-    //     pic: require("../img/icon_wdkj.png"),
-    //     link: "/account/myMineral",
-    //     component: MyMineral,
-    //     text: "我的矿机"
-    // },
     {
         pic: require("../img/icon_ykcz.png"),
         link: "/account/oilCard",
@@ -152,24 +151,26 @@ class Personal extends Component {
     }
     render (){
         const data = this.state.data;
-        const sundryData = JSON.parse(localStorage.getItem("sundryData"));
         return <div>
             <Title title="个人中心" code = {this.state.code}/>
            <div className="assetTotal">
-            <p className = "fc_white fz_40 text_center tit">资产总额</p>
-            <p className = "item">
-                <span style = {{width: "60%"}}>可用JSD:{data.jd_num}</span>
-                <span style = {{width: "40%"}}>冻结SD:{(data.djd_num * 1).toFixed(2)}</span>
-            </p>
+            <div style={{height: '100%', padding:  '.3rem 0.2rem'}}>
+                <p className="fc_white fz_30 text_center" style={{lineHeight: '.35rem'}}>资产总额</p>
+                <p className="fc_yellow fz_70 text_center" style={{lineHeight: '.94rem'}}>{data.total}</p>
+                <div className="fc_30 fz_30 text_center over_hidden" style={{marginLeft: '.45rem', width: "82%"}}>
+                    <span className="fc_white f_lt"><span>可用JSD:</span><span className="fc_white">{parseFloat(data.jd_num).toFixed(2)}</span></span>
+                    <span className="fc_white f_rt"><span>冻结JSD:<span className="fc_white">{parseFloat(data.djd_num).toFixed(2)}</span></span></span>
+                </div>
+            </div>
            </div>
            <div className="account_menus f_flex">
             {
                 accountMenus.map(function(item, i){
-                    return <div className="menus_item mt_50" key={i}>
+                    return <div className="menus_item mt_40" key={i}>
                         <Link to = {item.link}>
                             <span className="icon" style={{backgroundImage: "url(" + item.pic + ")"}} activestyle={{backgroundImage: "url(" + item.picActive + ")"}}></span>
                         </Link>
-                        <div className="text fz_30 mt_20 fc_white">{item.text}</div>
+                        <div className="text fc_white fz_26 mt_10">{item.text}</div>
                     </div>
                 })
             }

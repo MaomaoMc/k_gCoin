@@ -14,25 +14,16 @@ class Login extends Component {
     this.state = { 
       logined: false,
       keepPwd: false,
-      phone: localStorage.getItem("phone") || "18796271508",
-      l_pass: "123456",
+      phone: localStorage.getItem("phone") || "",
+      l_pass: "",
       warningDlgShow: false,
       warningText: ""
     };
   }
-  changeInputVal = (obj) => { //input change事件
-    var name = obj.name, 
-        val = obj.val;
-      if(name === "phone"){
-        this.setState({
-          phone: val
-        })
-      }
-      if(name === "l_pass"){
-        this.setState({
-          l_pass: val
-        })
-      }
+  changeInputVal = (e) => { //input change事件
+      this.setState({
+        [e.name]: e.value
+      })
   }
   keepPwdEvent (){ //记住密码--> 转变为记住手机号吗
     const keepPwd = this.state.keepPwd;
@@ -125,8 +116,40 @@ class Login extends Component {
       <div>
         <Title title="登录页面"/>
         <div className="logo"></div>
-        <div className="over_hidden primary_form" style={{width: '3.392rem', margin: '0 auto'}}>
-            <div style={{padding: '0 .15rem'}}>
+        <div className="over_hidden primary_form">
+          <ul className = "f_flex">
+            <li>
+              <label>手机号</label>
+              <input type = "text" placeholder="手机号" value={this.state.phone} onChange={e => {
+                this.changeInputVal({name: "phone", value: e.target.value})
+              }} />
+            </li>
+            <li>
+              <label>请输入密码</label>
+              <input type = "text" placeholder="请输入密码" value={this.state.l_pass} onChange={e => {
+                this.changeInputVal({name: "l_pass", value: e.target.value})
+              }} />
+            </li>
+          </ul>
+          <div className="f_lt mt_50" style={{width: '100%', lineHeight: '.15rem'}}>
+            <span>
+              <span className="keepPwd fz_30 fc_gray f_lt"
+                onClick = {e => {
+                  this.keepPwdEvent()
+                }}
+              >{this.state.keepPwd ? <span>√</span> : null}</span>
+              <label className="fz_26 fc_gray f_lt ml_10">记住手机号</label>
+            </span>
+            <Link to = "/account/forgetLoginPwd"><span className="fz_26 fc_gray f_rt">忘记密码？</span></Link>
+          </div>
+          <span className="btn btn_primary fz_26 mt_50" style={{width: '100%'}}
+          onClick={e => {
+            this.login()
+          }}>登录</span>
+          <Link to="/account/register">
+            <span className="btn register_btn fz_26 f_lt" style={{width: '100%', marginTop: '.67rem', color: 'white'}}>注册</span>
+          </Link> 
+            {/* <div style={{padding: '0 .15rem'}}>
               <input className="h_80" type="text" placeholder="手机号" name="phone" value={this.state.phone}
               onChange={e => {
                 this.changeInputVal({'name': e.target.name, 'val': e.target.value})
@@ -152,8 +175,8 @@ class Login extends Component {
               }}>登录</span>
               <Link to="/account/register">
                 <span className="btn register_btn h_80 fz_26 f_lt" style={{width: '100%', marginTop: '.67rem', color: 'white'}}>注册</span>
-              </Link>  
-              </div>    
+              </Link>   */}
+              {/* </div>     */}
         </div>
         {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningText} /> : null}
       </div>

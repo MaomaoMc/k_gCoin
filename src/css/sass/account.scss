@@ -1,7 +1,7 @@
 .logo{
     width: 1.32rem;
     height: 1.33rem;
-    background-image: url(../../img/logo.jpg);
+    background-image: url(../../img/logo.png);
     background-repeat: no-repeat;
     background-size: 100%;
     margin-top: .5rem;
@@ -11,10 +11,11 @@
 .account_form{
     padding: 0 .14rem;
     margin-top: .2rem;
-    div{
+    >div{
         height: .4rem;
         line-height: .4rem;
-        border-bottom: .01rem solid #eef2f5;
+        border-bottom: .01rem solid #c9a96e;
+        // border-radius: .05rem;
         position: relative;
         margin-top: .1rem;
         label{
@@ -31,6 +32,7 @@
        height: .4rem;
        line-height: .4rem;
         float: right;
+        color: white;
     }
     span.sendMessage{
         width: 1.07rem;
@@ -38,6 +40,8 @@
         line-height: .4rem;
         float: right;
     }
+    
+    
 }
 .login_btn, .register_btn, .submit_btn{
     line-height: .4rem;
@@ -46,52 +50,88 @@
     }
 }
 .primary_form{
-    input{
-        width: 100%;
-        text-indent: .15rem;
-        height: .4rem;
-        line-height: .4rem;
-        border: .01rem solid #ddd;
-        border-radius: .05rem;
-        float: right;
-        margin-top: .1rem;
-    }
-    input.code{
-        width: 2.24rem;
-        float: left;
-    }
-    span.sendMessage{
-        width: 1.07rem;
-        height: .4rem;
-        line-height: .4rem;
-        float: right;
-        margin-top: .1rem;
-    }
-    .back_login{
-        height: .4rem;
-        line-height: .4rem;
-        text-align: center;
-        a{
-            display: block;
-            height: .4rem;
-            line-height: .4rem;
-            color: rgba(255, 255, 255, .4);
+    margin: 0 .15rem;
+    ul{
+        flex-direction: column;
+        li{
+            flex-grow: 1;
+            height: .45rem;
+            line-height: .45rem;
+            font-size: .13rem;
+            border-bottom: .01rem solid #c9a96e;
+            label{
+                display: inline-block;
+                float: left;
+                width: 30%;
+                color: #c9a96e;
+            }
+            input{
+                float: left;
+                width: 65%;
+                height: .45rem;
+                line-height: .45rem;
+                color: white;
+                border: none;
+            }
+            // input[placeholder], [placeholder], *[placeholder] {   
+            //     color: rgba(201, 169, 110, .4) !important;
+            // } 
+            // ::-webkit-input-placeholder { /* WebKit browsers */
+            //     color: rgba(201, 169, 110, .4) !important;
+            // }
         }
     }
+    span.btn{
+        height: .37rem;
+        line-height: .37rem;
+    }
+    // input{
+    //     width: 100%;
+    //     text-indent: .15rem;
+    //     height: .4rem;
+    //     line-height: .4rem;
+    //     border: .01rem solid #c9a96e;
+    //     border-radius: .05rem;
+    //     float: right;
+    //     margin-top: .2rem;
+    // }
+    
+    // input.code{
+    //     width: 2.24rem;
+    //     float: left;
+    // }
+    // span.sendMessage{
+    //     width: 1.07rem;
+    //     height: .4rem;
+    //     line-height: .4rem;
+    //     float: right;
+    //     margin-top: .2rem;
+    // }
+    // .back_login{
+    //     height: .4rem;
+    //     line-height: .4rem;
+    //     text-align: center;
+    //     a{
+    //         display: block;
+    //         height: .4rem;
+    //         line-height: .4rem;
+    //         color: rgba(255, 255, 255, .4);
+    //     }
+    // }
 }
 /*个人资料*/
 .personalData{
    text-align: center;
    padding-bottom: .4rem;
     img{
-        width: .78rem;
-        height: .78rem;
+        width: .76rem;
+        max-height: .95rem;
     }
     .file {
-        width: .78rem;
-        // height: .85rem;
+        width: .76rem;
+        height: .95rem;
         line-height: .95rem;
-        margin: 0rem auto 0;
+        margin: .5rem auto 0;
         background-size: 100% 100%;
         position: relative;
         input[type='file']{
@@ -109,9 +149,6 @@
         li{
             flex-grow: 1;
             line-height: .3rem;
-            p.fc_blue{
-                font-weight: 600;
-            }
         }
     }
 }
@@ -120,22 +157,22 @@
     flex-direction: row;
     height: .4rem;
     line-height: .4rem;
-    border-bottom: .01rem solid #eef2f5;
-    background-color: white; 
+    border-bottom: .01rem solid #d9d2c5; 
     li{
         flex-grow: 1;
         text-align: center;
         a{
             display: inline-block;
            height: .39rem;
-            font-size: .11rem;
+            font-size: .15rem;
+            color: #c9a96e;
             vertical-align: bottom;
         }
     }
     li.active{
         a{
-            color: #3c82ff;
-            border-bottom: .02rem solid #3c82ff;
+            font-weight: 500;
+            border-bottom: .02rem solid #c9a96e;
         }
     }
 }
@@ -150,25 +187,25 @@
     margin-bottom: .4rem;
     li{
         line-height: .2rem;
-        border-bottom: .01rem solid #eef2f5;
+        border-bottom: .01rem solid #c9a96e;
         padding-top: .1rem;
     }
 }
 /*客服中心*/
 .clientService{
-    font-size: .12rem;
-    padding: .3rem .2rem;
+    padding: 0 .2rem;
+    margin-top: .2rem;
     .icon{
         background-repeat: no-repeat;
         background-size: 100% 100%;
         float: left;
         vertical-align: middle;
-        margin-right: .05rem;
+        margin-right: .1rem;
     }
     .icon.kefu{
-        width: .25rem;
-        height: .25rem;
-        background-image: url(../../img/icon_kef.png);
+        width: .27rem;
+        height: .27rem;
+        background-image: url(../../img/cion_kef.png);
     }
     p{
         line-height: .3rem;
@@ -180,8 +217,9 @@ img.wechat{
     background-image: url(../../img/icon_weixin.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    
     vertical-align: middle;
-    margin-right: .05rem;
+    margin-right: .1rem;
 }
 img.weChatgzh{
     width: 1.62rem;
@@ -192,15 +230,13 @@ img.weChatgzh{
     flex-direction: column;
     padding: .16rem;
     li{
-        width: 100%;
-        height: 1.01rem;
-        background-color: white;
         background-image: url(../../img/bg_xitongkuang.png);
         background-repeat: repeat;
         background-size: 100% 100%;
+        padding: .2rem;
         margin-bottom: .2rem;
         p{
-            line-height: .24rem;
+            line-height: .3rem;
             text-align: center;
         }
     }
@@ -208,7 +244,6 @@ img.weChatgzh{
 
 ul.lists{
     flex-direction: column;
-    background-color: white;
     margin-top: .2rem;
     a{
         display: block;
@@ -216,30 +251,37 @@ ul.lists{
         height: 100%;
     }
     li{
-        border-top: .01rem solid #eef2f5;
+        border-top: .01rem solid #cb9851;
         height: .47rem;
         line-height: .47rem;
         text-indent: .3rem;
         padding-right: .2rem;
         position: relative;
-        a{
-            color: #666;
-        }
         .mark{
             width: .52rem;
             height: .19rem;
             font-size: .12rem;
-            color: white;
+            border-style: solid;
             border-width: .01rem;
             border-radius: .2rem;
             margin-left: .1rem;
             padding: .05rem .1rem;
+           
         }
         .mark.authenticated{
-            background-color: #1dce3a;
+            border-color: #14a842;
+            color: #14a842;
+            a{
+                color: #14a842;
+            }
+            
         }
         .mark.unauthorized{
-            background-color: #bfbfbf;
+            border-color: #aaa;
+            color: #aaa;
+            a{
+                color: #aaa;
+            }
         }
         .go_arrow{
             display: inline-block;
@@ -254,7 +296,7 @@ ul.lists{
         
     }
     li:last-child{
-        border-bottom: .01rem solid #eef2f5;
+        border-bottom: .01rem solid #cb9851;
     }
 }
 /*油卡充值*/
@@ -276,7 +318,7 @@ input.czAmount{  /*充值金额*/
     width: .55rem;
     height: .3rem;
     text-align: center;
-    border: .01rem solid #3c82ff;
+    border: .01rem solid #cb9851;
     color: white;
 }
 /*实名认证*/
@@ -291,13 +333,14 @@ input.czAmount{  /*充值金额*/
 }
 #card_from{
     p{
-        width: 2.5rem;
+        width: 3rem;
         height: 1.5rem;
         line-height: 1.5rem;
-        border: .01rem dashed #ddd;
+        color: white;
+        border: .01rem dashed #c9a96e;
         border-radius: .05rem;
         text-align: center;
-        margin: .2rem auto 0;
+        margin-top: .2rem;
         position: relative;
         input.card_pic{
             display: block;
@@ -329,7 +372,7 @@ input.czAmount{  /*充值金额*/
     display: inline-block;
     width: .12rem;
     height: .12rem;
-    border: .01rem solid #3c82ff;
+    border: .01rem solid #c9a96e;
     border-radius: .05rem;
 }
 /*留言反馈*/
@@ -337,8 +380,8 @@ input.czAmount{  /*充值金额*/
     padding: .2rem;
     div{
         height: 2.5rem;
-        border: .01rem solid #666;
-        border-radius: .05rem;
+        border: .01rem solid #c9a96e;
+        border-radius: .1rem;
         padding: .1rem;
     }
     textarea{
@@ -347,14 +390,22 @@ input.czAmount{  /*充值金额*/
         border: none;
         
     }
+    // textarea[placeholder]{
+    //     color: white;
+    // }
+    input[placeholder], [placeholder], *[placeholder] {   
+        color: #c9a96e !important;
+    } 
+    ::-webkit-input-placeholder { /* WebKit browsers */
+        color: #c9a96e !important;
+    }
 }
 .feedBackLists{  //留言列表
     flex-direction: column;
     padding: 0 .2rem .4rem;
     li{
         flex-grow: 1;
-        background-color: #fff;
-        border: .01rem solid #ddd;
+        border: .01rem solid #c9a96e;
         border-radius: .05rem;
         padding: .1rem .2rem;
         margin-top: .15rem;
@@ -379,8 +430,9 @@ input.czAmount{  /*充值金额*/
     width: 3rem;
     height: 4rem;
     font-size: .1rem;
-    background-color: white;
-    border: .01rem solid #ddd;
+    color: white;
+    background-color: #031d59;
+    border: .01rem solid #c9a96e;
     border-radius: .15rem;
     padding: .15rem;
     position: fixed;
@@ -414,9 +466,10 @@ ul.myMineralUl{
     padding: .15rem;
     li{
         flex-grow: 1;
-        // border: .01rem solid #3c82ff;
-        // border-radius: .05rem;
-        background-color: white;
+        border: .01rem solid #c9a96e;
+        border-radius: .05rem;
+        background: linear-gradient(to right,/* 或90deg */rgba(255, 255, 255, .075) 50%, transparent 0);  
+        background-size: .03rem 100%;  
         padding: .2rem;
         margin-bottom: .15rem;
         position: relative;
@@ -434,10 +487,10 @@ ul.myMineralUl{
             bottom: .25rem;
         }
         span.btn.active{
-            color: white;
-            border: .01rem solid #fda100;
+            color: rgb(255, 255, 0);
+            border: .01rem solid rgb(255, 255, 0);
             border-radius: .12rem;
-            background-color: #fda100;
+            background-color: rgba(255, 255, 0, .3);
         }
     }
 }
@@ -450,7 +503,7 @@ ul.myMineralUl{
         line-height: .19rem;
         padding: 0 !important;
         color: white;
-        border: .01rem solid #3c82ff;
+        border: .01rem solid #c9a96e;
         background-color: rgba(7, 79, 155, .5);
         height: .19rem;
         overflow: hidden;
@@ -490,48 +543,27 @@ i.inviteCode{
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-/* 个人中心*/
+/*个人中心*/
 .assetTotal{
-    width: 7.5rem;
-    height: 4.36rem;
-    background-image: url(../../img/grzl_bg.png);
+    width: 3.75rem;
+    height: 2.18rem;
+    background-image: url(../../img/bg_zichan.png);
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-color: linear-gradient(red, blue);
-    position: relative;
-    margin: .9rem 0 .1rem;
-    p{
-        color: white;
-        width: 100%;
-        position: absolute;
-        span{
-            display: inline-block;
-        }
-    }
-    p.tit{
-        top: .7rem;
-    }
-    p.item{
-        width: 77%;
-        margin-left: 1.3rem;
-        bottom: .74rem;
-    }
+    margin: .1rem auto;
 }
 .account_menus{
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0 .15rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: .8rem;
     div.menus_item{
-        width: 2.4rem;
+        width: 1.15rem;
         text-align: center;
-        a{
-            color: #666;
-        }
         span.icon{
             display: block;
-            width: .65rem;
-            height: .65rem;
+            width: .27rem;
+            height: .27rem;
             background-size: 100% 100%;
             margin: 0 auto;
         }

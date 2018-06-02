@@ -6,10 +6,13 @@ import QRCode from 'qrcode.react';
 //引入
 import copy from 'copy-to-clipboard';
 
+// import Tab from './../Tab';
 import Title from './../Title';
+// import Shadow from './../Shadow';
 import WarningDlg from './../WarningDlg';
 
 const inviteImg = require("../img/inviteImg.png");
+const inviteCode = require("../img/invite_code.png");
 class Invite extends Component {
     constructor (props){
         super(props);
@@ -66,18 +69,20 @@ class Invite extends Component {
         this.ajax();
     }
     render (){
+        const self = this;
+        console.log(JSON.parse(localStorage.getItem("sundryData")).appqrcode, '2')
         return <div>
             <Title title="邀请好友" code = {this.state.code}/>
             <div className = "text_center">
                 <img className = "mt_40" src={inviteImg} alt="" style = {{width :"2.525rem", height : "2.8rem"}}/>
             </div>
             <div className = "inviteOpt f_flex" style = {{padding: "0 .5rem"}}>
-                    <p className = "fz_20">我的推荐ID</p>
+                    <p className = "fz_20 fc_gray">我的推荐ID</p>
                     <p className= "mt_10 mb_20">
                         <span className="inviteId">{this.state.id_num}</span>
                         <span className = "btn btn_primary" onClick = {e => {this.copy({text: this.state.id_num})}}>复制</span>
                     </p>
-                    <p className = "fz_20">我的推荐链接</p>
+                    <p className = "fz_20 fc_gray">我的推荐链接</p>
                     <p className="mt_10 mb_20">
                         <span className="inviteLink">{this.state.path} </span>
                         <span className = "btn btn_primary"
@@ -85,12 +90,12 @@ class Invite extends Component {
                         >复制</span>
                     </p>
                 <p><i className="f_lt inviteCode"></i>
-                    <span className="fz_20 f_lt" style={{lineHeight: ".15rem", marginLeft: ".05rem"}}>推荐二维码</span></p>
+                    <span className="fz_20 fc_white f_lt" style={{lineHeight: ".15rem", marginLeft: ".05rem"}}>推荐二维码</span></p>
             </div>
             <div className="text_center mt_40">
-                {this.state.path !== "" ? <QRCode value = {this.state.path}/> : null}
+                {/* {this.state.path !== "" ? <QRCode value = {this.state.path}/> : null} */}
+                <img style = {{display: "block", width: "1.4rem", height: "1.4rem", margin: ".2rem auto"}} src = {JSON.parse(localStorage.getItem("sundryData")).appqrcode} alt = ""/>
             </div>
-            {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningText}/> : null}
         </div>
     }
 }

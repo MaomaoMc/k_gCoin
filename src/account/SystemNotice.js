@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import qs from 'qs';
 import Title from '../Title';
@@ -95,30 +94,24 @@ class SystemNotice extends Component{
     }
     render (){
         const sysNotices = this.state.data;
-        const self = this;
         return <div>
             <Title title = "系统通知" code = {this.state.code}/>
            <ul className="sysNotices fz_24">
            {
                sysNotices.length > 0 && sysNotices.map(function(notice, i){
-                   return <li key = {i} onClick = {e => {
-                        self.props.history.push("/account/systemNoticeDetail");
-                        localStorage.setItem("sysNotCont", JSON.stringify(notice))
-                    }}>
-                        <div style = {{width: "90%", height: "90%", margin: "0 auto", overflow: "hidden"}}>
-                            <p>{notice.add_time}</p>
-                            <p className="fc_blue">{notice.title}</p>
-                            <p dangerouslySetInnerHTML = {{__html: notice.content}}></p>
-                        </div>
+                   return <li key = {i}>
+                        <p className="fc_gray">{notice.add_time}</p>
+                        <p className="fc_brown fz_26">{notice.title}</p>
+                        <p className="fc_gray" dangerouslySetInnerHTML = {{__html: notice.content}}></p>
                    </li>
                })
            }
            </ul>
-           <div className="loadMore fz_12 text_center mt_20" ref="wrapper"
+           <div className="loadMore fz_12 fc_gray text_center mt_20" ref="wrapper"
              onClick={this.loadMoreDataFn.bind(this, this)}>{this.state.isLoadingMore ? "没有更多数据了" : "加载更多"}</div>
              {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningText} /> : null}
         </div>
     }
 }
 
-export default withRouter(SystemNotice);
+export default SystemNotice;

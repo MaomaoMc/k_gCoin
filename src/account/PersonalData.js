@@ -12,9 +12,9 @@ class PersonalData extends Component {
         super(props);
         const sundryData = localStorage.getItem("sundryData");
         const token = localStorage.getItem("token");
+        console.log(token, 'tokentoken')
         this.state = {
             profile_pic: (baseUrl + JSON.parse(sundryData).adminpic), //头像
-            head_pic: "",
             sundryData: sundryData,
             token: token,
             data: {},  //个人数据
@@ -40,11 +40,6 @@ class PersonalData extends Component {
         })).then(function(res){
             const data = res.data;
             const code = data.code;
-            if(code === 1){
-                let sundryData = JSON.parse(localStorage.getItem("sundryData"));
-                sundryData.adminpic = self.state.head_pic;
-                localStorage.setItem("sundryData", JSON.stringify(sundryData));
-            }
             self.setState({
                 warningDlgShow: true,
                 warningText: data.msg,
@@ -65,10 +60,10 @@ class PersonalData extends Component {
         }).then(function(res){
             const data = res.data;
             const code = data.code;
+          
             if(code === 1){ //成功
                 self.setState({
-                    profile_pic: baseUrl +  data.data,
-                    head_pic: data.data  //因为sundryData  里面的adminPic 没有baseUrl 喂呀
+                    profile_pic: baseUrl +  data.data
                 }, function(){  //保存图片
                     self.setPhotoEvent()
                 })
@@ -118,36 +113,34 @@ class PersonalData extends Component {
         const profile_pic = this.state.profile_pic;
         return <div className="personalData">
             <Title title="个人资料" code = {this.state.code}/>
-            <div className="assetTotal">
-                <div className="file" style = {{paddingTop: ".45rem"}}>
-                    <form action="" id="form"> 
-                        <input type="file" name="photo" id="photo" 
-                            onChange = {e => {this.uploadedFile({value: e.target.value, obj: e.target})}}
-                            />
-                            <img style = {{marginTop: ".15rem"}} src={profile_pic === "" ? (baseUrl + JSON.parse(this.state.sundryData).adminpic) : profile_pic} alt=""/>
-                    </form>
-                </div> 
-                <p className = "fc_white fz_30">ID: {}</p> 
-                <ul className="fz_30 f_flex overview">
-                    <li>
-                        <p className="fc_blue">上级ID</p>
-                        <p>{data.tui_num}</p>
-                    </li>
-                    <li>
-                        <p className="fc_blue">我的ID</p>
-                        <p>{data.id_num}</p>
-                    </li>
-                    <li>
-                        <p className="fc_blue">等级</p>
-                        <p>{data.level_msg}</p>
-                    </li>
-                </ul>
-            </div>
+            <div className="file"  >
+                <form action="" id="form"> 
+                    <input type="file" name="photo" id="photo" 
+                        onChange = {e => {this.uploadedFile({value: e.target.value, obj: e.target})}}
+                         />
+                         <img src={profile_pic === "" ? (baseUrl + JSON.parse(this.state.sundryData).adminpic) : profile_pic} alt=""/>
+                       
+                </form>
+            </div>  
+            <ul className="fz_30 f_flex overview">
+                <li>
+                    <p className="fc_brown">上级ID</p>
+                    <p className="fc_white">{data.tui_num}</p>
+                </li>
+                <li>
+                    <p className="fc_brown">我的ID</p>
+                    <p className="fc_white">{data.id_num}</p>
+                </li>
+                <li>
+                    <p className="fc_brown">等级</p>
+                    <p className="fc_white">{data.level_msg}</p>
+                </li>
+            </ul>
             <ul className="lists f_flex fz_26 mb_100">
                 <li>
-                    <span className="f_lt">手机号验证</span>
+                    <span className="f_lt fc_brown">手机号验证</span>
                     <span className="f_rt">
-                        <span className="fc_blue">{data.phone}</span>
+                        <span className="fc_white">{data.phone}</span>
                         {data.phone !== "" ?
                             <span className="mark authenticated">已认证</span> :
                             <span className="mark unauthorized">已认证</span>
@@ -157,14 +150,14 @@ class PersonalData extends Component {
                 </li>
                 <li>
                     {data.bank_num === "" ? <Link to = "/account/creditCertify/unauthorized">
-                        <span className="f_lt">银行卡</span>
+                        <span className="f_lt fc_brown">银行卡</span>
                         <span className="f_rt">
-                            <span className="fc_blue">{data.bank_num}</span>
+                            <span className="fc_white">{data.bank_num}</span>
                             <span className="mark unauthorized">未认证</span>
                         </span>
-                    </Link> :  <Link to = "/account/creditCertify/authorized"><span><span className="f_lt fc_blue">银行卡</span>
+                    </Link> :  <Link to = "/account/creditCertify/authorized"><span><span className="f_lt fc_brown">银行卡</span>
                             <span className="f_rt">
-                                <span className="fc_blue">{data.bank_num}</span>
+                                <span className="fc_white">{data.bank_num}</span>
                                 <span className="mark authenticated">已认证</span> 
                             </span>
                         </span></Link>
@@ -172,14 +165,14 @@ class PersonalData extends Component {
                 </li>
                 <li>
                     {data.username === "" ? <Link to = "/account/certify/unauthorized">
-                        <span className="f_lt">实名认证</span>
+                        <span className="f_lt fc_brown">实名认证</span>
                         <span className="f_rt">
-                            <span className="fc_blue">{data.username}</span>
+                            <span className="fc_white">{data.username}</span>
                             <span className="mark unauthorized">未认证</span>
                         </span>
-                    </Link> :  <Link to = "/account/certify/authorized"><span><span className="f_lt fc_blue">实名认证</span>
+                    </Link> :  <Link to = "/account/certify/authorized"><span><span className="f_lt fc_brown">实名认证</span>
                             <span className="f_rt">
-                                <span className="fc_blue">{data.username}</span>
+                                <span className="fc_white">{data.username}</span>
                                 <span className="mark authenticated">已认证</span> 
                             </span>
                         </span></Link>
@@ -187,7 +180,7 @@ class PersonalData extends Component {
                 </li>
                 <li>
                     <Link to = "/account/shuaCertify/" >
-                        <span className="f_lt">刷脸认证</span>
+                        <span className="f_lt fc_brown">刷脸认证</span>
                         <span className="f_rt">
                             <span className="mark unauthorized">未认证</span>
                         </span>
@@ -196,36 +189,36 @@ class PersonalData extends Component {
                 <li style={{height: ".21rem"}}></li>
                 <li>
                     {data.wx_num === "" ? <Link to="/account/weChatBind">
-                        <span className="f_lt">微信</span>
+                        <span className="f_lt fc_brown">微信</span>
                         <span className="f_rt">
-                            <span className="mark unauthorized">未认证</span>
+                            <span className="fc_white">{data.wx_num}</span>
+                            <span className="go_arrow"></span>
                         </span>
                     </Link> : <a>
-                        <span className="f_lt">微信</span>
+                        <span className="f_lt fc_brown">微信</span>
                         <span className="f_rt">
-                            <span className="fc_blue">{data.wx_num}</span>
-                            <span className="mark authenticated">已认证</span> 
+                            <span className="fc_white">{data.wx_num}</span>
                         </span>
                     </a>}
                 </li>
                 <li>
                     {data.zfb_num === "" ? <Link to="/account/aliPayBind">
-                        <span className="f_lt">支付宝</span>
+                        <span className="f_lt fc_brown">支付宝</span>
                         <span className="f_rt">
-                            <span className="mark unauthorized">未认证</span>
+                            <span className="fc_white">{data.zfb_num}</span>
+                            <span className="go_arrow"></span>
                         </span>
                     </Link> :
                      <a>
-                        <span className="f_lt">支付宝</span>
-                        <span className="f_rt">
-                            <span className="fc_blue">{data.zfb_num}</span>
-                            <span className="mark authenticated">已认证</span> 
+                        <span className="f_lt fc_brown">支付宝</span>
+                                <span className="f_rt">
+                                    <span className="fc_white">{data.zfb_num}</span>
                         </span>
                     </a>}
                 </li>
                 <li>
                     <Link to="/account/changeLoginPwd">
-                        <span className="f_lt">修改登录密码</span>
+                        <span className="f_lt fc_brown">修改登录密码</span>
                         <span className="f_rt">
                         <span className="go_arrow"></span>
                         </span>
@@ -233,7 +226,7 @@ class PersonalData extends Component {
                 </li>
                 <li>
                     <Link to="/account/changeTradePwd"> 
-                        <span className="f_lt">修改交易密码</span>
+                        <span className="f_lt fc_brown">修改交易密码</span>
                         <span className="f_rt">
                         <span className="go_arrow"></span> 
                         </span>
@@ -241,7 +234,7 @@ class PersonalData extends Component {
                 </li>
                 <li>
                     <Link to = "/account/invite">
-                        <span className="f_lt">我的推广</span>
+                        <span className="f_lt fc_brown">我的推广</span>
                         <span className="f_rt">
                             <span className="go_arrow"></span> 
                         </span>

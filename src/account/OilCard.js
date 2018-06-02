@@ -7,7 +7,7 @@ import Title from './../Title';
 import WarningDlg from './../WarningDlg';
 import Shadow from './../Shadow';
 
-const oilCard_pic = require("../img/icon_ykcz.png");
+const oilCard_pic = require("../img/icon_ykcz_nor.png");
 class OilCard extends Component{
     constructor (props){
         super(props);
@@ -151,14 +151,14 @@ class OilCard extends Component{
     render (){
         return <div>
             <Title title="油卡充值" code = {this.state.code}/>
-           <div className="profile text_center">
+           {/* <div className="profile text_center">
             <img src={oilCard_pic} alt=""/>
-           </div>
+           </div> */}
             <ul className="lists f_flex fz_26" style={{marginTop: 0}}>
                 <li onClick = {e => {
                             this.handleSltOilCardType()
                         }}>
-                    <span className="f_lt fc_blue">油卡类型</span>
+                    <span className="f_lt fc_brown">油卡类型</span>
                     <span className="f_rt">
                         <span className="fc_white">{this.state.name}</span>
                         <span className="go_arrow" 
@@ -167,7 +167,7 @@ class OilCard extends Component{
                     </span>
                 </li>
                 <li>
-                    <span className="f_lt fc_blue">卡号</span>
+                    <span className="f_lt fc_brown">卡号</span>
                     <span className="f_rt">
                         <input className = "card_num" type="text" placeholder = "输入油卡卡号" value = {this.state.oil_num}
                          onChange = {e => {
@@ -176,8 +176,8 @@ class OilCard extends Component{
                         />
                     </span>
                 </li>
-                <li>
-                    <span className="f_lt fc_blue">身份证号码</span>
+                {/* <li>
+                    <span className="f_lt fc_brown">身份证号码</span>
                     <span className="f_rt">
                         <input className = "card_num" type="text" placeholder = "输入身份证号码" value = {this.state.idcard}
                          onChange = {e => {
@@ -187,7 +187,7 @@ class OilCard extends Component{
                     </span>
                 </li>
                 <li>
-                    <span className="f_lt fc_blue">姓名</span>
+                    <span className="f_lt fc_brown">姓名</span>
                     <span className="f_rt">
                         <input className = "card_num" type="text" placeholder = "输入姓名" value = {this.state.oil_name}
                          onChange = {e => {
@@ -195,9 +195,9 @@ class OilCard extends Component{
                         }}
                         />
                     </span>
-                </li>
+                </li> */}
                 <li>
-                    <span className="f_lt fc_blue">请输入充值JSD<span className="fc_gray fz_24">（最低额度100JSD）</span></span>
+                    <span className="f_lt fc_brown">请输入充值JSD<span className="fc_gray fz_24">（最低额度100JSD）</span></span>
                     <span className="f_rt">
                         <input className="czAmount" type="text" value={this.state.jd_num} 
                         onChange = {e => {
@@ -223,7 +223,7 @@ class OilCard extends Component{
                         this.handlePwdEvent({val: e.target.value})
                     }}
                     />
-                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_blue">忘记交易密码?</span></Link></div>
+                    <div className="fgtTradepass"><Link to = "/account/forgetTradePwd"><span className="fz_24 fc_brown">忘记交易密码?</span></Link></div>
                     <div className="over_hidden" style={{padding: "0 .14rem"}}>
                         <span className="btn fz_24 fc_white f_lt" onClick = {e => {
                             this.handlePayPwd({type: "cancel"})

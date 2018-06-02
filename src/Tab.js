@@ -10,7 +10,7 @@ class Tab extends Component {
         const mineralPoolIndex = hash.indexOf("mineralPool");
         const dealIndex = hash.indexOf("deal");
         return <div>
-            <ul className="tabUl f_flex">
+            <ul className="tabUl">
                 <li className={machineMarketIndex !== -1 ? "active" : ""}>
                     <Link to="/machineMarket"><span className = "icon js_icon"></span><span>机市</span></Link>
                 </li>

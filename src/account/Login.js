@@ -126,7 +126,7 @@ class Login extends Component {
             </li>
             <li>
               <label>请输入密码</label>
-              <input type = "text" placeholder="请输入密码" value={this.state.l_pass} onChange={e => {
+              <input type = "password" placeholder="请输入密码" value={this.state.l_pass} onChange={e => {
                 this.changeInputVal({name: "l_pass", value: e.target.value})
               }} />
             </li>

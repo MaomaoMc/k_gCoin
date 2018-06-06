@@ -26,7 +26,7 @@ class SystemSet extends Component{
             <ul className="lists f_flex fz_26" style={{marginTop: 0}}>
                 <li>
                     <Link to="/account/systemSet/about">
-                        <span className="f_lt fc_brown">关于JSD</span>
+                        <span className="f_lt fc_brown">关于KJB</span>
                         <span className="f_rt">
                             <span className="go_arrow"></span>
                         </span>

@@ -79,7 +79,7 @@ class MachineM extends Component {
                         dlgShow: false,
                         shadowShow: false,
                         warningDlgShow: true,
-                        warningText: "JSD不足",
+                        warningText: "KJB不足",
                         tradePassPwd: ""
                     }, function(){
                         this.hanleWarningDlgTimer()
@@ -150,7 +150,7 @@ class MachineM extends Component {
                                             self.handleBayEvent({id: item.id})
                                         }}>
                                         <i className="cart_icon"></i>
-                                       <span> {item.price} JSD</span>
+                                       <span> {item.price} KJB</span>
                                     </div>
                                 </div>
                             </div>

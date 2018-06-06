@@ -36,7 +36,6 @@ class Account extends Component {
                 <Route path="/account/personalData" component = {PersonalData} />
                 <Route path="/account/invite" component = {Invite} />
                 <Route path="/account/myMineral" component = {MyMineral} />
-                {/* <Route path="/account/setHead" component = {SetHead} /> */}
                 <Route path="/account/bill" component = {Bill} />
                 <Route path="/account/service" component = {ClientService} />
                 <Route path="/account/systemNotice" component = {SystemNotice} />

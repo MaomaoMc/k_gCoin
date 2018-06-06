@@ -82,28 +82,29 @@ class MyMineral extends Component  {
         const self = this;
         return <div>
             <Title title = "我的矿机" code = {this.state.code}/>
-            {/* <div className = "myMineralUl"> */}
-                <ul className = "myMineralUl f_flex fz_20 fc_white">
-                    {data.length > 0 && data.map(function(item, i){
-                        const mill = item.mill;
-                        const status_msg = item.status_msg;
-                        return <li key = {i}>
-                            <p>{mill.name}</p>
-                            <p className = "mt_20">
-                                <span>价格：{mill.price} </span>
-                                <span>总产值：{mill.earning} </span>
-                                <span>算力：{mill.force} </span>
-                                <span>周期：{mill.time}</span>
-                            </p>
-                            {status_msg === "未使用" ?
-                            <span className = "btn active" 
-                            onClick = {e => {
-                                self.handleUseMill({id: item.id})
-                            }}>启用</span> : <span className = "btn" >{status_msg}</span>}
-                        </li>
-                    })}
-                </ul>
-            {/* </div> */}
+            <ul className = "myMineralUl f_flex fz_20 fc_white">
+                {data.length > 0 && data.map(function(item, i){
+                    const mill = item.mill;
+                    const status_msg = item.status_msg;
+                    return <li key = {i}>
+                        <p>{mill.name}</p>
+                        <p className = "mt_20">
+                            <span>价格：{mill.price} </span>
+                            <span>总产值：{mill.earning} </span>
+                            
+                        </p>
+                        <p className = "mt_20">
+                            <span>算力：{mill.force} </span>
+                            <span>周期：{mill.time}</span>
+                        </p>
+                        {status_msg === "未使用" ?
+                        <span className = "btn active" 
+                        onClick = {e => {
+                            self.handleUseMill({id: item.id})
+                        }}>启用</span> : <span className = "btn" >{status_msg}</span>}
+                    </li>
+                })}
+            </ul>
             {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningDlgtext}/> : null}
         </div>
     }

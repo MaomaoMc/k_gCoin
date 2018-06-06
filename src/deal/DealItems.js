@@ -37,7 +37,8 @@ class DealItems extends Component {
         setTimeout(
             function(){
                 self.setState({
-                    warningDlgShow: false
+                    warningDlgShow: false,
+                    warningText: ""
                 }, function(){
                     if(obj && obj.code === 1){
                         window.location.reload();
@@ -63,43 +64,14 @@ class DealItems extends Component {
             })).then(re => {
                 const data = re.data;
                 const code = data.code;
-                if(code === 1){ //购买成功
-                    this.setState({
-                        dlgShow: false,
-                        warningDlgShow: true,
-                        warningText: "购买成功",
-                        tradePassPwd: ""
-                    }, function(){
-                        this.hanleWarningDlgTimer({code: code})
-                    })
-                }
-                else if(code === -4){ //支付密码不正确
-                    this.setState({
-                        warningDlgShow: true,
-                        warningText: "支付密码不正确",
-                        tradePassPwd: ""
-                    }, function(){
-                        this.hanleWarningDlgTimer()
-                    })
-                }
-                else if(code === -3){//如果jsd余额不足
-                    this.setState({
-                        dlgShow: false,
-                        warningDlgShow: true,
-                        warningText: "JSD余额不足",
-                        tradePassPwd: ""
-                    }, function(){
-                        this.hanleWarningDlgTimer()
-                    })
-                } else{
-                    self.setState({
-                        warningDlgShow: true,
-                        warningText: data.msg,
-                        code: code
-                    }, function(){
-                        this.hanleWarningDlgTimer()
-                    })
-                }
+                self.setState({
+                    dlgShow: false,
+                    warningDlgShow: true,
+                    warningText: data.msg,
+                    tradePassPwd: ""
+                }, function(){
+                    self.hanleWarningDlgTimer({code: code})
+                })
             })
         }
        
@@ -200,9 +172,9 @@ class DealItems extends Component {
                         return <li key={i} className="fz_22">
                             <p>
                                 <span className="fc_brown">单号：{item.trade_num}</span>
-                                <span className="f_rt fc_white">ID：{item.trade_id}</span>
+                                <span className="f_rt fc_white">ID：{item.id_num}</span>
                             </p>
-                            <p className="fc_white text_center" style={{lineHeight: ".5rem"}}>挂卖{num}JSD，单价{price}元，总价{Math.round(parseFloat(num * price)*100)/100}</p>
+                            <p className="fc_white text_center" style={{lineHeight: ".5rem"}}>挂卖{num}KJB，单价{price}元，总价{Math.round(parseFloat(num * price)*100)/100}</p>
                             <p className="text_center">
                                 <span className="btn" onClick = { e => {
                                     self.handleSellEvent({trade_id: item.trade_id})

@@ -118,7 +118,7 @@ class Ptp extends Component {
                         />
                     </li>
                 </ul>
-                <p className="fz_18 fc_white mt_10">*交易手续费20%；如转入100JSD，系统将扣120JSD。</p>
+                <p className="fz_18 fc_white mt_10">*交易手续费20%；如转入100KJB，系统将扣120KJB。</p>
                 <span className="btn btn_orange block" style={{margin: '.25rem auto', display: 'block'}}
                 onClick = {e => {
                     this.handleSell()

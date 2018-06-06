@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import axios from 'axios';
 import qs from 'qs';
 import Title from '../Title';
@@ -20,6 +20,7 @@ class Register extends Component {
             t_pass: "123",  //交易密码
             rt_pass: "123",  //重复交易密码
             tui_id: tui_id, //推荐人ID
+            register: false, 
             data_code: "", //接口返回的code  例如10002  1 等
             countDown: 60,
             warningDlgShow: false,
@@ -45,8 +46,11 @@ class Register extends Component {
                 self.setState({
                     warningDlgShow: false
                 }, function(){
-                    if(obj && obj.code === 1){ //注册成功
-                        window.history.back();
+                    if(obj && obj.code === 1){ //注册成功  新用户登录
+                        window.tokenLoseFun();
+                        self.setState({
+                            register: true
+                        })
                     }
                 })
             }
@@ -167,7 +171,7 @@ class Register extends Component {
               self.setState({
                   warningDlgShow: true,
                   warningDlgText: data.msg,
-                data_code: data_code
+                  data_code: data_code
               }, function(){
                   self.hanleWarningDlgTimer({code: data_code})
               })
@@ -175,6 +179,9 @@ class Register extends Component {
     }
     render (){
         const countDown = this.state.countDown;
+        if(this.state.register){
+            return <Redirect  to="/" />
+        }
         return <div>
             <Title title="注册页面" code = {this.state.data_code}/>
             <div className="logo"></div>
@@ -197,7 +204,7 @@ class Register extends Component {
                     </li>
                     <li>
                         <label>创建密码</label>
-                        <input type = "text" placeholder="请输入您的密码" value={this.state.l_pass} onChange={e => {
+                        <input type = "password" placeholder="请输入您的密码" value={this.state.l_pass} onChange={e => {
                             this.changeInputVal({type: "l_pass", value: e.target.value})
                         }} />
                     </li>

@@ -25,12 +25,12 @@ const accountMenus = [
         component: PersonalData,
         text: "个人资料"
     },
-    // {
-    //     pic: require("../img/icon_wdkj.png"),
-    //     link: "/account/myMineral",
-    //     component: Bill,
-    //     text: "我的矿机"
-    // },
+    {
+        pic: require("../img/icon_wdkj.png"),
+        link: "/account/myMineral",
+        component: Lottery,
+        text: "我的矿机"
+    },
     {
         pic: require("../img/icon_zdzx.png"),
         link: "/account/Bill",
@@ -90,12 +90,6 @@ const accountMenus = [
         link: "/account/luckDial",
         component: LuckDial,
         text: "幸运转盘"
-    },
-    {
-        pic: require("../img/icon_ggl.png"),
-        link: "/account/lottery",
-        component: Lottery,
-        text: "刮刮乐"
     }
 ];
 class Personal extends Component {
@@ -158,8 +152,8 @@ class Personal extends Component {
                 <p className="fc_white fz_30 text_center" style={{lineHeight: '.35rem'}}>资产总额</p>
                 <p className="fc_yellow fz_70 text_center" style={{lineHeight: '.94rem'}}>{data.total}</p>
                 <div className="fc_30 fz_30 text_center over_hidden" style={{padding: '0 .2rem'}}>
-                    <span className="fc_white f_lt"><span><i className = "icon icon_jsd"></i>可用JSD:</span><span className="fc_white">{parseFloat(data.jd_num).toFixed(2)}</span></span>
-                    <span className="fc_white f_rt"><span><i className = "icon icon_djsd"></i>冻结JSD:<span className="fc_white">{parseFloat(data.djd_num).toFixed(2)}</span></span></span>
+                    <span className="fc_white f_lt"><span><i className = "icon icon_jsd"></i>可用KJB:</span><span className="fc_white">{parseFloat(data.jd_num).toFixed(2)}</span></span>
+                    <span className="fc_white f_rt"><span><i className = "icon icon_djsd"></i>冻结KJB:<span className="fc_white">{parseFloat(data.djd_num).toFixed(2)}</span></span></span>
                 </div>
             </div>
            </div>

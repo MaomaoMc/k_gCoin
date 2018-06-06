@@ -85,7 +85,7 @@ class ChangePwd extends Component {
             const code = data.code;
             self.setState({
                 warningDlgShow: true,
-                warningText: data.msg,
+                warningDlgText: data.msg,
                 code: code
             }, function(){
                 this.hanleWarningDlgTimer()

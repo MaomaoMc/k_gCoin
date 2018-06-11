@@ -174,7 +174,7 @@ class DealItems extends Component {
                                 <span className="fc_brown">单号：{item.trade_num}</span>
                                 <span className="f_rt fc_white">ID：{item.id_num}</span>
                             </p>
-                            <p className="fc_white text_center" style={{lineHeight: ".5rem"}}>挂卖{num}KJB，单价{price}元，总价{Math.round(parseFloat(num * price)*100)/100}</p>
+                            <p className="fc_white text_center" style={{lineHeight: ".5rem"}}>挂卖{num}KGC，单价{price}元，总价{Math.round(parseFloat(num * price)*100)/100}</p>
                             <p className="text_center">
                                 <span className="btn" onClick = { e => {
                                     self.handleSellEvent({trade_id: item.trade_id})

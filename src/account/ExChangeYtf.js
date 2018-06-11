@@ -90,7 +90,7 @@ class ExchangeYtf extends Component{
             return;
         }
         if(jd_num === 0){
-            this.renderWarning("KJB数量不能为空或为0");
+            this.renderWarning("KGC数量不能为空或为0");
             return;
         }
        this.setState({
@@ -115,7 +115,7 @@ class ExchangeYtf extends Component{
                     </span>
                 </li>
                 <li>
-                    <span className="f_lt fc_brown">请输入兑换KJB</span>
+                    <span className="f_lt fc_brown">请输入兑换KGC</span>
                     <span className="f_rt">
                         <input className="czAmount" type="text" value = {this.state.jd_num}
                           onChange = {e => {

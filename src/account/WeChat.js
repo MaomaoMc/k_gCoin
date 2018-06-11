@@ -13,7 +13,7 @@ class WeChat extends Component{
             <div className="text_center fz_24">
                 <p className="fc_white" style={{lineHeight: '.8rem'}}>
                     <img className="wechat" src={wechat} alt="" />
-                    <span>KJB微信官方客服：</span>
+                    <span>KGC微信官方客服：</span>
                 </p>
                 <img className="weChatgzh" src={window.baseUrl + wx_pic} alt=""/>
             </div>

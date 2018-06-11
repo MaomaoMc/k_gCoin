@@ -103,7 +103,7 @@ class Bill extends Component {
           }
           </ul>
           <p className="fc_brown totalSum" style={{fontSize: ".395rem"}}>{money > 0 ? "+" : "-"}{this.state.money}</p>
-          <p className = "fz_26 text_center fc_gray">账户总额(E币)</p>
+          <p className = "fz_26 text_center fc_gray">账户总额(KGC)</p>
           <ul className="billItems f_flex fz_24">
           {
               data.map(function(bill, i){

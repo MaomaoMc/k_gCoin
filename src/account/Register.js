@@ -17,8 +17,8 @@ class Register extends Component {
             code: "", //验证码
             l_pass: "",
             rl_pass: "",
-            t_pass: "123",  //交易密码
-            rt_pass: "123",  //重复交易密码
+            t_pass: "",  //交易密码
+            rt_pass: "",  //重复交易密码
             tui_id: tui_id, //推荐人ID
             register: false, 
             data_code: "", //接口返回的code  例如10002  1 等
@@ -210,17 +210,33 @@ class Register extends Component {
                     </li>
                     <li>
                         <label>重复确认密码</label>
-                        <input type="password" placeholder="请重复确认您的密码：" value = {this.state.rl_pass} onChange = {e => {
+                        <input type="password" placeholder="请重复确认您的密码" value = {this.state.rl_pass} onChange = {e => {
                             this.changeInputVal({type: "rl_pass", value: e.target.value})
                         }} onBlur = {e => {
                             this.passValidate({type: "rl_pass", value: e.target.value})
                         }}/>
                     </li>
                     <li>
+                        <label>创建交易密码</label>
+                        <input type="password" placeholder="创建交易密码" maxLength = "6" value = {this.state.t_pass} onChange = {e => {
+                            this.changeInputVal({type: "t_pass", value: e.target.value})
+                        }} onBlur = {e => {
+                            this.passValidate({type: "t_pass", value: e.target.value})
+                        }}/>
+                    </li>
+                    <li>
+                        <label>重复交易密码</label>
+                            <input type="password" placeholder="重复交易密码" maxLength = "6" value = {this.state.rt_pass} onChange = {e => {
+                            this.changeInputVal({type: "rt_pass", value: e.target.value})
+                        }} onBlur = {e => {
+                            this.passValidate({type: "rt_pass", value: e.target.value})
+                        }}/>
+                    </li>
+                    <li>
                         <label>推荐人ID</label>
-                        {window.location.hash.indexOf("tui_id") !== -1 ? <input type="text" placeholder="请输入推荐人ID：" readOnly="true" defaultValue= {this.state.tui_id} />
-                        : <input type="text" placeholder="推荐人ID：" value = {this.state.tui_id} onChange = {e => {
-                            this.handleInputChange({type: "tui_id", value: e.target.value})
+                        {window.location.hash.indexOf("tui_id") !== -1 ? <input type="text" placeholder="请输入推荐人ID" readOnly="true" defaultValue= {this.state.tui_id} />
+                        : <input type="text" placeholder="推荐人ID" value = {this.state.tui_id} onChange = {e => {
+                            this.changeInputVal({type: "tui_id", value: e.target.value})
                         }}/>}
                     </li>
                 </ul>

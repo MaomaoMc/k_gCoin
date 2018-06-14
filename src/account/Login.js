@@ -12,6 +12,7 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = { 
+      adminPic: "",
       logined: false,
       keepPwd: false,
       phone: localStorage.getItem("phone") || "",
@@ -75,8 +76,6 @@ class Login extends Component {
         localStorage.setItem("token", data.data.token);
         this.setState({
           logined: true
-        }, function(){
-          this.getSundry(data.data.token);
         })
        } else {
         this.setState({
@@ -88,13 +87,17 @@ class Login extends Component {
       }
     })
   }
-  getSundry (token) { //一些杂项的数据
+  getSundry () { //一些杂项的数据
+    const self = this;
     axios.post(window.baseUrl + "/home/Login/getSundry", qs.stringify({
-      token: token,
+      // token: token,
     })).then(re=>{
       const data = re.data;
       const code = re.code;
      if(data.code === 1){ //成功
+      self.setState({
+        adminPic: data.data.adminpic
+      })
       localStorage.setItem("sundryData", JSON.stringify(data.data));  //后面的页面时不时要用到的 先存着
      } else {
         this.setState({
@@ -106,6 +109,9 @@ class Login extends Component {
      }
     })
   }
+  componentDidMount (){
+    this.getSundry()
+  }
   render() {
     if(this.state.logined) {
       return (
@@ -115,7 +121,7 @@ class Login extends Component {
     return (
       <div>
         <Title title="登录页面"/>
-        <div className="logo"></div>
+        <div className="logo" style = {{backgroundImage: "url(" + window.baseUrl + this.state.adminPic +")"}}></div>
         <div className="over_hidden primary_form">
           <ul className = "f_flex">
             <li>

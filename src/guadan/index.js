@@ -18,17 +18,11 @@ class GuaDan extends Component {
         super(props);
         const hash = window.location.hash;
         const index = hash.indexOf("newerGuad");
-        // const newPrice = sundryData.newPrice;  //当前价格
-        // const less_price = sundryData.less_bee * newPrice;
-        // const more_price = sundryData.more_bee * newPrice;
         let page_type;
-        //     percent = (newPrice - less_price) / (more_price - less_price); //圆点 在线上的 百分多少的位置
         if (index === -1) { // 高手挂单
             page_type = "2";
-            // tip = sundryData.gao_tishi;
         } else {  //新手挂单
             page_type = "1";
-            // tip = sundryData.xin_tishi;
         }
         this.state = Object.assign({
             page_type: page_type,

@@ -250,7 +250,7 @@ class DealRecords extends Component {
                 <a className="btn_close" onClick = {e => {
                     self.setState({msgDlgShow: false, shadowShow: false})
                 }}></a>
-                <div style={{padding: '.25rem'}}>
+                <div style={{padding: '0 .4rem'}}>
                     <ul className="f_flex">
                         <li style={{lineHeight: ".3rem"}}>姓名：{msgDlgData.name}</li>
                         <li style={{lineHeight: ".3rem"}}>手机号：{msgDlgData.phone}</li>

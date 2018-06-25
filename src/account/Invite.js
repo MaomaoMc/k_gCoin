@@ -6,9 +6,7 @@ import QRCode from 'qrcode.react';
 //引入
 import copy from 'copy-to-clipboard';
 
-// import Tab from './../Tab';
 import Title from './../Title';
-// import Shadow from './../Shadow';
 import WarningDlg from './../WarningDlg';
 
 const inviteImg = require("../img/inviteImg.png");
@@ -17,6 +15,7 @@ class Invite extends Component {
     constructor (props){
         super(props);
         this.state = {
+            app_pic: "",  //app下载的图片
             id_num: "",
             code: "",
             path: "", // 保存二维码SVG的path
@@ -65,8 +64,30 @@ class Invite extends Component {
             })
         })
     }
+    getSundry () { //一些杂项的数据
+        const self = this;
+        axios.post(window.baseUrl + "/home/Login/getSundry", qs.stringify({
+        })).then(re=>{
+          const data = re.data;
+          const code = re.code;
+         if(data.code === 1){ //成功
+          self.setState({
+            app_pic: data.data.app_pic
+          })
+          localStorage.setItem("sundryData", JSON.stringify(data.data));  //后面的页面时不时要用到的 先存着
+         } else {
+            this.setState({
+              warningDlgShow: true,
+              warningText: data.msg,
+          }, function(){
+              this.hanleWarningDlgTimer()
+          })
+         }
+        })
+      }
     componentDidMount (){
         this.ajax();
+        this.getSundry();
     }
     render (){
         const self = this;
@@ -88,12 +109,12 @@ class Invite extends Component {
                         onClick = {e => {this.copy({text: this.state.path})}}
                         >复制</span>
                     </p>
-                <p><i className="f_lt inviteCode"></i>
-                    <span className="fz_20 fc_white f_lt" style={{lineHeight: ".15rem", marginLeft: ".05rem"}}>推荐二维码</span></p>
+                <p>
+                    <span className="fz_20 fc_white f_lt" style={{lineHeight: ".15rem", marginLeft: ".05rem"}}>App下载</span></p>
             </div>
             <div className="text_center mt_40">
-                {/* {this.state.path !== "" ? <QRCode value = {this.state.path}/> : null} */}
-                <img style = {{display: "block", width: "1.4rem", height: "1.4rem", margin: ".2rem auto"}} src = {JSON.parse(localStorage.getItem("sundryData")).appqrcode} alt = ""/>
+                <img style = {{display: "block", width: "1.4rem", height: "1.4rem", margin: ".2rem auto"}}
+                 src = {window.baseUrl + this.state.app_pic} alt = ""/>
             </div>
         </div>
     }

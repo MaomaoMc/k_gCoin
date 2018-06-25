@@ -39,9 +39,9 @@ class AboutJsd extends Component{
     render (){
         return <div>
             <Title title = "关于KGC"/>
-            <p className="fc_white fz_26" style={{lineHeight: ".25rem", textIndent: '.2rem', padding: '.2rem'}}
+            <div className="fc_white fz_26" style={{lineHeight: ".25rem", textIndent: '.2rem', padding: '.2rem .2rem .5rem .2rem'}}
                 dangerouslySetInnerHTML = {{__html: this.state.about_us}} >
-            </p>
+            </div>
         </div>
     }
 }

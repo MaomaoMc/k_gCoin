@@ -155,34 +155,6 @@ class Login extends Component {
           <Link to="/account/register">
             <span className="btn register_btn fz_26 f_lt" style={{width: '100%', marginTop: '.67rem', color: 'white'}}>注册</span>
           </Link> 
-            {/* <div style={{padding: '0 .15rem'}}>
-              <input className="h_80" type="text" placeholder="手机号" name="phone" value={this.state.phone}
-              onChange={e => {
-                this.changeInputVal({'name': e.target.name, 'val': e.target.value})
-              }} />
-              <input className="h_80 mt_50" type="password" placeholder="请输入密码" name="l_pass" value={this.state.l_pass}
-              onChange={e => {
-                this.changeInputVal({'name': e.target.name, 'val': e.target.value})
-              }} />
-              <div className="f_lt mt_50" style={{width: '100%', lineHeight: '.15rem'}}>
-                <span>
-                  <span className="keepPwd fz_30 fc_white f_lt"
-                    onClick = {e => {
-                      this.keepPwdEvent()
-                    }}
-                  >{this.state.keepPwd ? <span>√</span> : null}</span>
-                  <label className="fz_26 fc_blue f_lt ml_10">记住手机号</label>
-                </span>
-                <Link to = "/account/forgetLoginPwd"><span className="fz_26 fc_blue f_rt">忘记密码？</span></Link>
-              </div>
-              <span className="btn btn_primary login_btn h_80 fz_26 f_lt mt_50" style={{width: '100%'}}
-              onClick={e => {
-                this.login({})
-              }}>登录</span>
-              <Link to="/account/register">
-                <span className="btn register_btn h_80 fz_26 f_lt" style={{width: '100%', marginTop: '.67rem', color: 'white'}}>注册</span>
-              </Link>   */}
-              {/* </div>     */}
         </div>
         {this.state.warningDlgShow ? <WarningDlg text = {this.state.warningText} /> : null}
       </div>

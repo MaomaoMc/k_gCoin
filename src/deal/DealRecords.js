@@ -252,7 +252,7 @@ class DealRecords extends Component {
                 }}></a>
                 <div style={{padding: '0 .4rem'}}>
                     <ul className="f_flex">
-                        <li style={{lineHeight: ".3rem"}}>姓名：{msgDlgData.name}</li>
+                        <li style={{lineHeight: ".3rem"}}>姓名：{msgDlgData.username}</li>
                         <li style={{lineHeight: ".3rem"}}>手机号：{msgDlgData.phone}</li>
                         <li style={{lineHeight: ".3rem"}}>微信账号：{msgDlgData.wx_num}</li>
                         <li style={{lineHeight: ".3rem"}}>支付宝账号：{msgDlgData.zfb_num}</li>

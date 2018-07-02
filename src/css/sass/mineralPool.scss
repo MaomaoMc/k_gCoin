@@ -50,6 +50,20 @@
     background: url(../../img/bg_tankuang.png) no-repeat 100% 100%;
     margin-left: -1.4rem;
     margin-top: -1rem;
+    p.dlg_tit{
+        text-align: center;
+        margin-top: .3rem;
+        .ex_icon{
+            display: inline-block;
+            width: .22rem;
+            height: .22rem;
+            background-image: url(../../img/ex_icon.png);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin-right: .1rem;
+            vertical-align: sub;
+        }
+    }
     ul{
         flex-direction: column;
         li{
@@ -60,11 +74,6 @@
     }
 }
 .dlgMessage{
-    // width: 3.025rem;
-    // height: 1.745rem;
-    // background: url(../../img/bg_tankuang.png) no-repeat 100% 100%;
-    // margin-left: -1.5225rem;
-    // margin-top: -1rem;
     div{
         font-size: .16rem;
         color: white;

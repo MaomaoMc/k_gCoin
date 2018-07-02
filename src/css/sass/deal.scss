@@ -214,6 +214,9 @@ ul.dealItems{
     background-image: url(../../img/bg_tankuang.png);
     margin-left: -1.5225rem;
     margin-top: -1rem;
+    .dlg_tit{
+        margin-top: .52rem;
+    }
 }
 .dlgPayPwd{
     width: 3.025rem;
@@ -234,10 +237,8 @@ ul.dealItems{
     .dlg_tit{
         font-size: .18rem;
         text-align: center;
-        text-indent: .3rem;
         height: .37rem;
         line-height: .4rem;
-        margin-top: .52rem;
     }
     a.btn_close{
         display: block;

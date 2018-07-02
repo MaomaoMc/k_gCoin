@@ -246,7 +246,7 @@ class DealRecords extends Component {
                 </div>
             </div>
             <div className={this.state.msgDlgShow ? "dialog dlgZtMessage" : "dialog dlgZtMessage hide"}>
-                <p className="dlg_tit fc_white">{type === 1 ? "卖家信息" : "买家信息"}</p>
+                <p className="dlg_tit fc_white"><i className = "icon ex_icon"></i>{type === 1 ? "卖家信息" : "买家信息"}</p>
                 <a className="btn_close" onClick = {e => {
                     self.setState({msgDlgShow: false, shadowShow: false})
                 }}></a>
@@ -256,6 +256,7 @@ class DealRecords extends Component {
                         <li style={{lineHeight: ".22rem"}}>手机号：{msgDlgData.phone}</li>
                         <li style={{lineHeight: ".22rem"}}>微信账号：{msgDlgData.wx_num}</li>
                         <li style={{lineHeight: ".22rem"}}>支付宝账号：{msgDlgData.zfb_num}</li>
+                        <li style={{lineHeight: ".22rem"}}>银行名称：{msgDlgData.bank_name}</li>
                         <li style={{lineHeight: ".22rem"}}>银行卡号：{msgDlgData.bank_num}</li>
                     </ul>
                 </div>

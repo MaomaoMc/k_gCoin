@@ -256,7 +256,7 @@ class MineralPool extends Component {
                 </ul>
             </div>
             <div className={this.state.dlgZtDlgShow ? "dialog dlgZtMessage" : "dialog dlgZtMessage hide"}>
-                <p className="dlg_tit fc_white">直推信息</p>
+                <p className="dlg_tit fc_white"><i className = "icon ex_icon"></i>直推信息</p>
                 <a className="btn_close" onClick = {e => {
                     self.handleZtDlgEvent({type: "close"})
                 }}></a>
@@ -278,7 +278,7 @@ class MineralPool extends Component {
                 </div>
             </div>
             <div className={this.state.dlgZtMessageShow ? "dialog dlgMessage" : "dialog dlgMessage hide"}>
-                <p className="dlg_tit fc_white">个人信息</p>
+                <p className="dlg_tit fc_white"><i className = "icon ex_icon"></i>个人信息</p>
                 <a className="btn_close" onClick = {e => {
                     self.handleMessageDlg({type: "close"})
                 }}></a>

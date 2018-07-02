@@ -42,6 +42,18 @@
   background: url(../../img/bg_tankuang.png) no-repeat 100% 100%;
   margin-left: -1.4rem;
   margin-top: -1rem; }
+  .dlgZtMessage p.dlg_tit, .dlgMessage p.dlg_tit {
+    text-align: center;
+    margin-top: .3rem; }
+    .dlgZtMessage p.dlg_tit .ex_icon, .dlgMessage p.dlg_tit .ex_icon {
+      display: inline-block;
+      width: .22rem;
+      height: .22rem;
+      background-image: url(../../img/ex_icon.png);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      margin-right: .1rem;
+      vertical-align: sub; }
   .dlgZtMessage ul, .dlgMessage ul {
     flex-direction: column; }
     .dlgZtMessage ul li, .dlgMessage ul li {

@@ -120,4 +120,4 @@ class Invite extends Component {
     }
 }
 
-export default Invite;
+export default Invite;      
